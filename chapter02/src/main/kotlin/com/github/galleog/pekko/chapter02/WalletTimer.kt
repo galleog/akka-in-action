@@ -56,7 +56,7 @@ object WalletTimer {
     }
 }
 
-fun main(args: Array<String>) {
+fun main() {
     val wallet = ActorSystem.create(WalletTimer.create(), "wallet-timer")
     wallet.tell(WalletTimer.Increase(1))
     wallet.tell(WalletTimer.Deactivate(3))
