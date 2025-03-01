@@ -1,4 +1,4 @@
-package com.github.galleog.pekko.chapter03.errorkernel
+package com.github.galleog.pekko.chapter03.questionwithpayload
 
 import org.apache.pekko.actor.typed.ActorRef
 import org.apache.pekko.actor.typed.ActorSystem
@@ -16,7 +16,7 @@ class Guardian private constructor(context: ActorContext<Command>) : AbstractBeh
 
     init {
         context.log.info("Setting up. Creating manager")
-        manager = context.spawn(Manager.create(), "manager-alpha")
+        manager = context.spawn(Manager.create(), "manager-1")
     }
 
     override fun createReceive(): Receive<Command> =
@@ -36,8 +36,8 @@ class Guardian private constructor(context: ActorContext<Command>) : AbstractBeh
 }
 
 fun main() {
-    val guardian: ActorSystem<Guardian.Command> = ActorSystem.create(Guardian.create(), "error-kernel")
-    guardian.tell(Guardian.Start(listOf("-one-", "--two--")))
+    val guardian: ActorSystem<Guardian.Command> = ActorSystem.create(Guardian.create(), "example-question-with-payload")
+    guardian.tell(Guardian.Start(listOf("text-a", "text-b", "text-c")))
 
     println("Press ENTER to terminate")
     readlnOrNull()
