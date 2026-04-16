@@ -6,3 +6,4 @@ rootProject.name = "akka-in-action"
 
 include("chapter02")
 include("chapter03")
+include("chapter04")
