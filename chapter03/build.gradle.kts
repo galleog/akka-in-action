@@ -1,5 +1,5 @@
 plugins {
-    id("com.github.galleog.pekko.gradle.conventions")
+    id("com.github.galleog.pekko.gradle.kotlin")
 }
 
 dependencies {

@@ -12,5 +12,5 @@ dependencies {
 
     testImplementation("org.junit.vintage:junit-vintage-engine")
     testImplementation("org.apache.pekko:pekko-actor-testkit-typed_2.13")
-    testImplementation("io.kotest:kotest-assertions-core")
+    testImplementation(libs.mockk)
 }
