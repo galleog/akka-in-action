@@ -2,15 +2,17 @@ plugins {
     id("com.github.galleog.pekko.gradle.kotlin")
 }
 
+val scalaVersion: String by project
+
 dependencies {
     implementation(platform(libs.pekko.bom))
     implementation(platform(libs.junit.bom))
     implementation(platform(libs.kotest.bom))
 
-    implementation("org.apache.pekko:pekko-actor-typed_2.13")
+    implementation("org.apache.pekko:pekko-actor-typed_$scalaVersion")
     implementation(libs.logback)
 
     testImplementation("org.junit.vintage:junit-vintage-engine")
-    testImplementation("org.apache.pekko:pekko-actor-testkit-typed_2.13")
+    testImplementation("org.apache.pekko:pekko-actor-testkit-typed_$scalaVersion")
     testImplementation("io.kotest:kotest-assertions-core")
 }
