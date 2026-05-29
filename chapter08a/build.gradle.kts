@@ -16,7 +16,7 @@ dependencies {
 }
 
 application {
-    mainClass.set("com.github.galleog.pekko.chapter08a.MainKt")
+    mainClass.set("com.github.galleog.pekko.chapter08a.ClusterDomainEventListenerKt")
 }
 
 tasks.withType<JavaExec> {
