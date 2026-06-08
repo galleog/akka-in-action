@@ -15,7 +15,7 @@ import kotlin.test.Test
 @ExtendWith(TestKitJUnit5Extension::class, LogCapturingExtension::class)
 class ContainerTest {
     @JUnit5TestKit
-    private val testKit = ActorTestKit.create(ContainerTest::class.simpleName)
+    private val testKit = ActorTestKit.create(this::class.simpleName)
 
     @Test
     fun `a sharded freight entity should be able to add a cargo`() {
