@@ -4,12 +4,15 @@ kotlin-coroutines = "1.10.2"
 pekko = "1.6.0"
 pekko-management = "1.2.1"
 pekko-persistence-r2dbc = "1.1.0"
+pekko-persistence-jdbc = "1.2.0"
 logback = "1.3.14"
 kotest = "6.1.1"
 mockk = "1.14.9"
 jackson = "2.21.2"
 junit = "6.0.3"
+postgres = "42.7.11"
 postgres-r2dbc = "1.1.0.RELEASE"
+testcontainers = "2.0.5"
 
 [libraries]
 kotlin-gradle-plugin = { group = "org.jetbrains.kotlin", name = "kotlin-gradle-plugin", version.ref = "kotlin"}
@@ -18,9 +21,12 @@ pekko-bom = { group = "org.apache.pekko", name = "pekko-bom_2.13", version.ref =
 pekko-management = { group = "org.apache.pekko", name = "pekko-management_2.13", version.ref = "pekko-management" }
 pekko-management-cluster-http = { group = "org.apache.pekko", name = "pekko-management-cluster-http_2.13", version.ref = "pekko-management" }
 pekko-persistence-r2dbc = { group = "org.apache.pekko", name = "pekko-persistence-r2dbc_2.13", version.ref="pekko-persistence-r2dbc" }
+pekko-persistence-jdbc = { group = "org.apache.pekko", name = "pekko-persistence-jdbc_2.13", version.ref="pekko-persistence-jdbc" }
 logback = { group = "ch.qos.logback", name = "logback-classic", version.ref = "logback" }
 kotest-bom = { group = "io.kotest", name = "kotest-bom", version.ref = "kotest" }
 mockk = { group = "io.mockk", name = "mockk", version.ref = "mockk" }
 jackson-bom = { group = "com.fasterxml.jackson", name = "jackson-bom", version.ref = "jackson" }
 junit-bom = { group = "org.junit", name = "junit-bom", version.ref = "junit"}
+postgres = { group = "org.postgresql", name = "postgresql", version.ref = "postgres" }
 postgres-r2dbc = { group = "org.postgresql", name = "r2dbc-postgresql", version.ref = "postgres-r2dbc" }
+testcontainers-bom = { group = "org.testcontainers", name = "testcontainers-bom", version.ref = "testcontainers" }

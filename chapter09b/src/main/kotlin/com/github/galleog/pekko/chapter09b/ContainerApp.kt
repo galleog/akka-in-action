@@ -14,7 +14,7 @@ object ContainerApp {
 
     @JvmStatic
     fun main(args: Array<String>) {
-        val system = ActorSystem.create<Nothing>(Behaviors.empty(), "containers")
+        val system = ActorSystem.create<Void>(Behaviors.empty(), "containers")
         try {
             val shardRegion = init(system)
             commandLoop(system, shardRegion)

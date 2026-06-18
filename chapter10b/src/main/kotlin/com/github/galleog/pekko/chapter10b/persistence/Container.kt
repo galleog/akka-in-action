@@ -1,4 +1,4 @@
-package com.github.galleog.pekko.chapter09b.persistence
+package com.github.galleog.pekko.chapter10b.persistence
 
 import org.apache.pekko.actor.typed.ActorRef
 import org.apache.pekko.actor.typed.Behavior
@@ -9,8 +9,8 @@ import org.apache.pekko.persistence.typed.javadsl.*
 import kotlin.time.Duration.Companion.seconds
 import kotlin.time.toJavaDuration
 
-class SpContainer private constructor(persistenceId: PersistenceId) :
-    EventSourcedBehavior<SpContainer.Command, SpContainer.Event, SpContainer.State>(
+class Container private constructor(persistenceId: PersistenceId) :
+    EventSourcedBehavior<Container.Command, Container.Event, Container.State>(
         persistenceId,
         SupervisorStrategy.restartWithBackoff(10.seconds.toJavaDuration(), 60.seconds.toJavaDuration(), 0.1)
     ) {
@@ -23,7 +23,7 @@ class SpContainer private constructor(persistenceId: PersistenceId) :
     sealed interface Event
     data class CargoAdded(val containerId: String, val cargo: Cargo) : Event, CborSerializable
 
-    data class State(val cargos: List<Cargo> = emptyList())
+    data class State(val cargos: List<Cargo> = emptyList()) : CborSerializable
 
     override fun emptyState(): State = State()
 
@@ -51,8 +51,8 @@ class SpContainer private constructor(persistenceId: PersistenceId) :
     private fun onCargoAdded(state: State, event: CargoAdded) = State(state.cargos + event.cargo)
 
     companion object {
-        val TYPE_KEY = EntityTypeKey.create(Command::class.java, "spcontainer-type-key")
+        val TYPE_KEY = EntityTypeKey.create(Command::class.java, "container-type-key")
 
-        fun create(containerId: String): Behavior<Command> = SpContainer(PersistenceId.of(TYPE_KEY.name(), containerId))
+        fun create(containerId: String): Behavior<Command> = Container(PersistenceId.of(TYPE_KEY.name(), containerId))
     }
 }
