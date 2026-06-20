@@ -10,6 +10,7 @@ dependencies {
     implementation(platform(libs.junit.bom))
     implementation(platform(libs.testcontainers.bom))
 
+    implementation(project(":chapter09b"))
     implementation("org.apache.pekko:pekko-actor-typed_$scalaVersion")
     implementation("org.apache.pekko:pekko-cluster-sharding-typed_$scalaVersion")
     implementation("org.apache.pekko:pekko-persistence-typed_$scalaVersion")

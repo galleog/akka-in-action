@@ -1,7 +1,7 @@
 package com.github.galleog.pekko.chapter10b
 
-import com.github.galleog.pekko.chapter10b.persistence.Container
-import com.github.galleog.pekko.chapter10b.persistence.Container.*
+import com.github.galleog.pekko.chapter09b.persistence.SpContainer
+import com.github.galleog.pekko.chapter09b.persistence.SpContainer.*
 import com.typesafe.config.ConfigFactory
 import org.apache.pekko.NotUsed
 import org.apache.pekko.actor.testkit.typed.javadsl.ActorTestKit
@@ -44,8 +44,8 @@ class PersistenceQueryTest {
         probe.expectSubscription()
             .request(3)
         probe.expectNextUnordered(
-            "container-type-key|9",
-            "container-type-key|11"
+            "spcontainer-type-key|9",
+            "spcontainer-type-key|11"
         )
     }
 
@@ -97,11 +97,11 @@ class PersistenceQueryTest {
             val done = SchemaUtils.createIfNotExists(testKit.system())
             done.toCompletableFuture().get(3, TimeUnit.SECONDS)
 
-            val actor1 = testKit.spawn(Container.create("9"))
+            val actor1 = testKit.spawn(SpContainer.create("9"))
             actor1.tell(AddCargo(Cargo("456", "sack", 22)))
             actor1.tell(AddCargo(Cargo("459", "bigbag", 15)))
 
-            val actor2 = testKit.spawn(Container.create("11"))
+            val actor2 = testKit.spawn(SpContainer.create("11"))
             actor2.tell(AddCargo(Cargo("499", "barrel", 120)))
         }
 
