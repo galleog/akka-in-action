@@ -8,7 +8,7 @@ import org.apache.pekko.stream.javadsl.*
 import java.util.concurrent.CompletionStage
 
 fun main() {
-    val system: ActorSystem<Void> = ActorSystem.create(Behaviors.empty(), "runner")
+    val system: ActorSystem<Unit> = ActorSystem.create(Behaviors.empty(), "runner")
 
     val fakeDB = mutableListOf<Int>()
 

@@ -8,7 +8,7 @@ import org.apache.pekko.persistence.query.PersistenceQuery
 import org.apache.pekko.stream.javadsl.Source
 
 fun main() {
-    val system: ActorSystem<Void> = ActorSystem.create(Behaviors.ignore(), "persistence-query")
+    val system: ActorSystem<Unit> = ActorSystem.create(Behaviors.ignore(), "persistence-query")
 
     val readJournal: JdbcReadJournal = PersistenceQuery.get(system).getReadJournalFor(
         JdbcReadJournal::class.java,
